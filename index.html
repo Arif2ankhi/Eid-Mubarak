@@ -79,7 +79,7 @@
             border: 3px double var(--gold);
             padding: 20px; text-align: center;
         }
-        .envelope.open .card { transform: translateY(-220px); height: 430px; z-index: 5; }
+        .envelope.open .card { transform: translateY(-220px); height: 460px; z-index: 5; }
 
         .pattern-overlay {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 7.5L40 10l-7.5 2.5L30 20l-2.5-7.5L20 10l7.5-2.5L30 0z' fill='%23d4af37' fill-opacity='0.1'/%3E%3C/svg%3E");
@@ -105,8 +105,8 @@
     </div>
 
     <div class="text-center z-50">
-        <h2 id="instruction" class="text-pink-700 mb-8 text-2xl font-bold animate-pulse drop-shadow-md">
-            ✨ Click the Envelope! ✨
+        <h2 id="instruction" class="text-pink-400 mb-8 text-2xl font-bold animate-pulse drop-shadow-md">
+             ✨ Click the Envelope ✨
         </h2>
         
         <div class="envelope-wrapper" onclick="celebrate()">
@@ -116,11 +116,14 @@
                     <h1 class="text-5xl text-emerald-900" style="font-family: 'Great Vibes';">Eid Mubarak</h1>
                     <p class="font-bold text-emerald-700 text-xl mt-2">'🌙'Eid-Ul-Fitr Mubarak'🌙'</p>
                     
-                    
-                    <div class="mt-6 text-gray-700 text-sm italic leading-relaxed px-2 font-sans">
-                        "Wishing you and your loved ones a day filled with spiritual blessings, 
-                        warm gatherings, and the purest kind of happiness. May Allah’s grace 
-                        shine upon you today and always."
+                    <div class="mt-6 text-gray-700 text-sm leading-relaxed px-2 font-sans">
+                        <p class="mb-3 italic">
+                            "To the most <strong>respectful, graceful, and elegant</strong> soul in the universe—your presence is truly <strong>divine</strong>."
+                        </p>
+                        <p>
+                            Wishing you and your loved ones a day filled with spiritual blessings and the purest happiness. 
+                            May Allah bless you with <strong>more respect and more light</strong> today and always.
+                        </p>
                     </div>
                     
                     <div class="mt-8 border-t border-yellow-200 pt-4 text-emerald-800 font-semibold">
@@ -131,14 +134,11 @@
         </div>
 
         <audio id="eidMusic" loop>
-            <!-- <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg"> -->
-            <!-- <source src="https://www.music.com.bd/download/Music/T/Traditional%20Songs/Eid%20Song%20-%20Ramjaner%20Oi%20Rojar%20Sheshe%20Alo%20Khushir%20Eid%20(music.com.bd).mp3.html" type="audio/mpeg"> -->
              <source src="./eid.mp3" type="audio/mpeg">
         </audio>
     </div>
 
     <script>
-        // Create Butterflies and Fanush dynamically
         const container = document.getElementById('dynamic-elements');
         const emojis = ['🦋', '🦋', '🎈', '✨'];
         
@@ -170,12 +170,11 @@
 
             if (!envelope.classList.contains('open')) {
                 envelope.classList.add('open');
-                instruction.innerText = "🎊 Eid Ul Fitr Mubarak! 🎊";
+                instruction.innerText = "🎊 EID MUBARAK! 🎊";
                 instruction.classList.remove('animate-pulse');
                 
                 music.play();
 
-                // Fireworks / Confetti Effect
                 const duration = 15 * 1000;
                 const animationEnd = Date.now() + duration;
                 const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
@@ -192,7 +191,6 @@
                     }
 
                     const particleCount = 50 * (timeLeft / duration);
-                    // Colorful fireworks
                     confetti(Object.assign({}, defaults, { 
                         particleCount, 
                         origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
@@ -207,7 +205,7 @@
             } else {
                 envelope.classList.remove('open');
                 music.pause();
-                instruction.innerText = "✨ Click the Envelope, Sanjida! ✨";
+                instruction.innerText = "✨ Click the Envelope ✨";
                 instruction.classList.add('animate-pulse');
             }
         }
